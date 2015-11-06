@@ -53,9 +53,11 @@
         // Grab a IIIF manifest
         $.getJSON(manifestUrl, function (data) {
             // For each image create a L.TileLayer.Iiif object and add that to an object literal for the layer control
-            $.each(data.sequences[0].canvases, function (_, val) {
-                iiifLayers[val.label] = L.tileLayer.iiif(val.images[0].resource.service['@id'] + '/info.json');
-            });
+            //$.each(data.sequences[0].canvases, function (_, val) {
+            //   iiifLayers[val.label] = L.tileLayer.iiif(val.images[0].resource.service['@id']);
+            //});
+            
+            iiifLayers['image']  = L.tileLayer.iiif(data.sequences[0].canvases[0].images[0].resource.service['@id']);
             
             // Add layers control to the map
             L.control.layers(iiifLayers).addTo(map);
