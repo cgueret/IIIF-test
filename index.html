@@ -57,7 +57,7 @@
             //   iiifLayers[val.label] = L.tileLayer.iiif(val.images[0].resource.service['@id']);
             //});
             
-            iiifLayers['image']  = L.tileLayer.iiif(data.sequences[0].canvases[0].images[0].resource.service['@id']);
+            iiifLayers['image']  = L.tileLayer.iiif(data.sequences[0].canvases[0].images[0].resource.service['@id'] + '/info.json');
             
             // Add layers control to the map
             L.control.layers(iiifLayers).addTo(map);
